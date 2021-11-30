@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600&family=Bree+Serif&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Croissant+One&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/df24f7e5ef.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="bootstrap-5.0.2-dist/css/bootstrap.min.css"> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-align: center;
+            text-decoration: none;
+            list-style: none;
+            font-family: 'Baloo Bhai 2', cursive;
+        }
+
+        body {
+            background-color: rgb(245, 230, 230);
+        }
+
+        p {
+            font-size: 1.2rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: rgb(32, 70, 241);
+            font-family: 'Croissant One', cursive;
+        }
+        div{
+            margin: 25px 0px;
+        }
+
+        /* FLIP CARD */
+        /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 200px;
+            border: 1px solid #f7f0f0;
+            perspective: 1000px;
+            /* Remove this if you don't want the 3D effect */
+        }
+
+        /* This container is needed to position the front and back side */
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        /* Do an horizontal flip when you move the mouse over the flip box container */
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Position the front and back side */
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            /* Safari */
+            backface-visibility: hidden;
+        }
+
+        /* Style the front side (fallback if image is missing) */
+        .flip-card-front {
+            background-color: #bbb;
+            color: black;
+        }
+
+        /* Style the back side */
+        .flip-card-back {
+            background-color: rgb(8, 8, 8);
+            color: rgb(250, 246, 246);
+            transform: rotateY(180deg);
+        }
+
+        /* FOOTER STYLING */
+        footer {
+            text-align: left;
+            margin-top: 250px;
+            width: 100%;
+            /* position: fixed; */
+            bottom: 0;
+            left: 0;
+            background: #f7baba;
+        }
+
+        footer .content {
+            max-width: 1350px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        footer .content p,
+        a {
+            text-decoration: none;
+            color: rgb(97, 93, 93);
+        }
+
+        footer .content .box {
+            width: 33%;
+            transition: all 0.4s ease;
+        }
+
+        footer .content .topic {
+            font-size: 22px;
+            font-weight: 600;
+            color: rgb(7, 7, 7);
+            margin-bottom: 16px;
+
+        }
+
+        footer .content p {
+            text-align: justify;
+        }
+
+        footer .content .lower .topic {
+            margin: 24px 0 5px 0;
+        }
+
+        footer .content .lower i {
+            padding-right: 16px;
+        }
+
+        footer .content .middle {
+            padding-left: 20px;
+        }
+
+        footer .content .middle a {
+            line-height: 32px;
+        }
+
+        footer .content .right input[type="text"] {
+            height: 45px;
+            width: 100%;
+            outline: none;
+            color: #070606;
+            background: rgb(100, 89, 89);
+            border-radius: 5px;
+            padding-left: 10px;
+            font-size: 17px;
+            border: 2px solid #0a0a0a;
+        }
+
+        footer .content .right input[type="submit"] {
+            height: 42px;
+            width: 100%;
+            font-size: 18px;
+            color: #d9d9d9;
+            background: #e23913;
+            outline: none;
+            border-radius: 5px;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 12px;
+            border: 2px solid #eb2f06;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .content .right input[type="submit"]:hover {
+            background: rgb(236, 156, 156);
+            color: #eb2f06;
+        }
+
+        footer .content .media-icons a {
+            font-size: 25px;
+            height: 45px;
+            width: 45px;
+            display: inline-block;
+            text-align: center;
+            line-height: 43px;
+
+            /* border-radius: 20px;
+        border: 2px solid #222222; */
+            margin: 0px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        footer .content .media-icons p {
+            margin-top: 45px;
+            padding: 2px 0px;
+
+        }
+
+
+        /* .content .media-icons a:hover {
+        border-color: #0facd3;
+    } */
+
+        footer .bottom {
+            width: 100%;
+            text-align: center;
+            color: #6e6565;
+            padding: 0 40px 5px 0;
+        }
+
+        footer .bottom a {
+            color: #eb2f06;
+        }
+
+        footer a {
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #c74343;
+        }
+
+        footer .content .media-icons a:hover {
+            color: black;
+        }
+
+
+
+        @media (max-width:1100px) {
+            footer .content .middle {
+                padding-left: 50px;
+            }
+        }
+
+        @media (max-width:950px) {
+            footer .content .box {
+                width: 50%;
+            }
+
+            .content .right {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width:560px) {
+            footer {
+                position: relative;
+            }
+
+            footer .content .box {
+                width: 100%;
+                margin-top: 30px;
+            }
+
+            footer .content .middle {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <h1>About Us</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda, optio? Fuga autem recusandae porro eum
+            molestias nihil dolorum commodi saepe blanditiis praesentium nemo, non qui doloremque nostrum? Fugit enim
+            cupiditate cum totam ab fuga, explicabo ea ipsa officiis earum voluptatem, ex doloremque, omnis debitis quia
+            fugiat unde voluptates ducimus dolorem! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate
+            voluptatem, beatae, molestias numquam minima aperiam fugit quia ex officia praesentium nisi exercitationem
+            libero repellat quos harum voluptate sequi, officiis corrupti perferendis obcaecati natus! Doloremque
+            incidunt quidem eum dolores? Corrupti laboriosam omnis rerum saepe. Nihil asperiores minima molestias
+            doloremque. Repellendus aperiam distinctio omnis consequuntur laudantium optio tempora veniam qui laboriosam
+            fuga sit recusandae libero doloribus ex dolore maiores iure blanditiis enim suscipit repellat soluta, quas
+            harum debitis alias. Laborum, blanditiis vel. Veniam, architecto! Sunt quae eaque sapiente quibusdam beatae
+            dolorum incidunt ea, aperiam aliquid tempora soluta architecto aliquam provident. Maiores, commodi.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi distinctio reprehenderit pariatur
+            explicabo libero sed quibusdam dolorum quod ut praesentium natus aliquid, assumenda facere architecto error!
+            Facilis sequi molestias inventore adipisci incidunt? Doloribus, maxime cum quos perferendis dolores libero
+            quam autem maiores sed, deleniti obcaecati magnam illum nihil repellendus facilis dolor saepe impedit
+            aperiam. Porro reiciendis ea eius, enim eligendi inventore, quos cumque culpa omnis, quaerat nesciunt.
+            Quasi, sequi ducimus corporis provident corrupti nihil sapiente optio molestias suscipit labore dolore natus
+            aliquid voluptatum placeat dolores eligendi. Eius commodi ex voluptates ipsum aspernatur adipisci, itaque
+            atque, hic excepturi, rem tempora incidunt?</p>
+        <div class="shop">
+            <h1>Our First Shop</h1>
+            <img src="img/ice-cream-shop-g5e2d6cca9_1280.jpg" alt="">
+        </div>
+        <h1>What makes us Special?</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita sit perspiciatis aperiam amet id ad
+            ducimus qui nam ullam dolor accusamus temporibus, exercitationem odit deserunt blanditiis tempora molestiae
+            earum numquam doloribus eius? Nam omnis maxime sapiente, nostrum exercitationem magnam similique veritatis
+            blanditiis pariatur tempore labore itaque quaerat! Incidunt, commodi. Eaque.</p>
+        <!-- FLIP CARD -->
+        <section class="main_heading my-10">
+            <div class="text-center">
+                <h1>Our Team</h1>
+                <hr class="w-25 mx-auto">
+            </div>
+            <div class="sp d-flex justify-content-evenly align-items-center flex-wrap px-5">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/model-gcd976d486_640.jpg" alt="Avatar" style="width:300px;height:300px;">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>John Doe</h1>
+                            <p>CEO & Founder</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, necessitatibus.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/business-g5fd79efeb_640.jpg" alt="Avatar" style="width:300px;height:300px;">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Jane Doe</h1>
+                            <p>Designer</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, nulla.</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/adult-g0b8bc872c_640.jpg" alt="Avatar" style="width:300px;height:300px;">
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Mike Ross</h1>
+                            <p>Architect</p>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, animi.</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <div class="content">
+            <div class="left box">
+                <div class="upper">
+                    <div class="topic">Engage With Us</div>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Location</a></li>
+                        <li><a href="#">Partner With Us</a></li>
+                        <li><a href="#">Earn Rewards</a></li>
+                    </ul>
+                </div>
+                <div class="lower">
+                    <div class="topic">Contact us</div>
+                    <div class="phone">
+                        <a href="#"><i class="fas fa-phone-volume"></i>9XXXXXXXXX</a>
+                    </div>
+                    <div class="email">
+                        <a href="#"><i class="fas fa-envelope"></i>XYZ@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+            <div class="middle box">
+                <div class="topic">Our Menu</div>
+                <div><a href="#">Lorem ipsum dolor sit.</a></div>
+                <div><a href="#">Lorem, ipsum dolor.</a></div>
+                <div><a href="#">Lorem, ipsum. </a></div>
+                <div><a href="#">Lorem ipsum dolor sit amet. </a></div>
+                <div><a href="#">Lorem, ipsum.</a></div>
+                <div><a href="#">Lorem ipsum dolor sit.</a></div>
+            </div>
+            <div class="right box">
+                <div class="topic">Subscribe to our Newslettter</div>
+                <form action="#">
+                    <input type="text" placeholder="Enter email address">
+                    <input type="submit" name="" value="Subscribe">
+                    <div class="media-icons">
+                        <p>Also follow us on</p>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bottom">
+            <p>Copyright © 2021 <a href="#">Ice Cream</a> All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+    </script>
+    <script type="text/javascript">
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
+    </script>
+</body>
+
+</html>
